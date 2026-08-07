@@ -175,13 +175,13 @@ export function Hero() {
         <motion.div
           {...rise}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col gap-5 font-mono text-xs"
+          className="flex flex-col gap-5 font-mono text-sm md:text-xs"
         >
           <div>
             <Label>Overlap with CET</Label>
             <p className="mt-1 text-muted">{site.overlap}</p>
           </div>
-          <div className="flex flex-col items-start gap-2">
+          <div className="flex flex-col items-start gap-3 md:gap-2">
             <Magnetic strength={0.3}>
               <a
                 href={`mailto:${site.contact.email}`}

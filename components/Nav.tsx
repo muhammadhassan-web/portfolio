@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Download } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { site } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -18,6 +18,7 @@ export function Nav() {
   const [active, setActive] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
   const [showName, setShowName] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     function onScroll() {
@@ -50,10 +51,20 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  // Close the mobile menu on resize back to desktop, so it can't get
+  // stuck open behind the now-hidden hamburger button.
+  useEffect(() => {
+    function onResize() {
+      if (window.innerWidth >= 768) setMenuOpen(false);
+    }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <nav
       className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
-        scrolled
+        scrolled || menuOpen
           ? "border-line bg-ink/85 backdrop-blur"
           : "border-transparent bg-transparent"
       }`}
@@ -83,7 +94,9 @@ export function Nav() {
             )}
           </AnimatePresence>
         </a>
-        <div className="flex gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+
+        {/* Desktop nav */}
+        <div className="hidden items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted md:flex">
           {links.map((l) => (
             <a
               key={l.id}
@@ -115,7 +128,65 @@ export function Nav() {
           </a>
           <ThemeToggle />
         </div>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            data-cursor
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="flex h-9 w-9 items-center justify-center border border-line text-text transition-colors hover:border-signal hover:text-signal"
+          >
+            {menuOpen ? (
+              <X className="h-4 w-4" />
+            ) : (
+              <Menu className="h-4 w-4" />
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu panel */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-t border-line md:hidden"
+          >
+            <div className="flex flex-col gap-1 px-6 py-4 font-mono text-sm uppercase tracking-[0.15em]">
+              {links.map((l) => (
+                <a
+                  key={l.id}
+                  href={`#${l.id}`}
+                  data-cursor
+                  onClick={() => setMenuOpen(false)}
+                  className={`py-2.5 transition-colors ${
+                    active === l.id ? "text-signal" : "text-muted hover:text-text"
+                  }`}
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href={site.contact.cv}
+                download
+                data-cursor
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 flex items-center gap-2 border border-line px-4 py-2.5 text-text transition-colors hover:border-signal hover:text-signal"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Download CV
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
