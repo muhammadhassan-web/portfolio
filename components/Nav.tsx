@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Download } from "lucide-react";
 import { site } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
@@ -17,9 +17,15 @@ const links = [
 export function Nav() {
   const [active, setActive] = useState<string>("");
   const [scrolled, setScrolled] = useState(false);
+  const [showName, setShowName] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    function onScroll() {
+      setScrolled(window.scrollY > 24);
+      // Reveal the full name once the hero (with its own big heading) has
+      // scrolled mostly out of view, so it isn't shown twice at once.
+      setShowName(window.scrollY > window.innerHeight * 0.6);
+    }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -57,8 +63,25 @@ export function Nav() {
           scrolled ? "py-3" : "py-5"
         }`}
       >
-        <a href="#top" data-cursor className="font-mono text-xs tracking-widest">
-          MH
+        <a
+          href="#top"
+          data-cursor
+          className="overflow-hidden font-mono text-xs tracking-widest whitespace-nowrap"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {showName && (
+              <motion.span
+                key="full-name"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="inline-block"
+              >
+                {site.name}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </a>
         <div className="flex gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
           {links.map((l) => (
