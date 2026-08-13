@@ -138,8 +138,9 @@ export const site = {
         "Served behind a Flask REST API with rate limiting and payload validation, packaged with Docker so the model and its dependencies deploy as one unit.",
       ],
       stack: ["Python", "Flask", "scikit-learn", "Docker"],
+      live: "https://fakescope-nx97.onrender.com/",
       repo: "https://github.com/muhammadhassan-web/FakeScope-Full-Stack-AI-Fake-News-Detection-Platform",
-      status: "source",
+      status: "live",
     },
     {
       id: "weathernow",
