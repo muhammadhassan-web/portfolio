@@ -8,6 +8,7 @@ export type Project = {
   stack: string[];
   live?: string;
   repo?: string;
+  image?: string;
   status: "live" | "source" | "private";
 };
 
@@ -94,6 +95,7 @@ export const site = {
       ],
       live: "https://relaysync.vercel.app/",
       repo: "https://github.com/muhammadhassan-web/Relay-Real-Time-Collaborative-Code-Editor",
+      image: "/projects/relay.webp",
       status: "live",
     },
     {
@@ -110,6 +112,7 @@ export const site = {
       stack: ["Next.js", "Supabase", "Postgres", "Stripe", "Groq", "Tailwind CSS"],
       live: "https://contentforge-ai-eta.vercel.app/",
       repo: "https://github.com/muhammadhassan-web/contentforge-ai",
+      image: "/projects/contentforge.webp",
       status: "live",
     },
     {
@@ -126,6 +129,7 @@ export const site = {
       stack: ["Next.js", "Groq", "Tailwind CSS", "Framer Motion", "react-pdf"],
       live: "https://resumeforge-tailor.vercel.app/",
       repo: "https://github.com/muhammadhassan-web/resumeforge-ai",
+      image: "/projects/resumeforge.webp",
       status: "live",
     },
     {
@@ -157,6 +161,7 @@ export const site = {
       stack: ["React", "Vite", "Express", "MongoDB Atlas", "Gemini", "Cloudinary", "JWT"],
       live: "https://docyra.vercel.app/",
       repo: "https://github.com/muhammadhassan-web/Docyra-AI-Powered-PDF-Search-Platform",
+      image: "/projects/docyra.webp",
       status: "live",
     },
     {
@@ -173,6 +178,7 @@ export const site = {
       stack: ["Python", "Flask", "scikit-learn", "Docker"],
       live: "https://fakescope-nx97.onrender.com/",
       repo: "https://github.com/muhammadhassan-web/FakeScope-Full-Stack-AI-Fake-News-Detection-Platform",
+      image: "/projects/fakescope.webp",
       status: "live",
     },
     {
