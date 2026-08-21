@@ -16,9 +16,11 @@ const statusCopy = {
 export function ProjectCard({
   project,
   index,
+  columns = 2,
 }: {
   project: Project;
   index: number;
+  columns?: number;
 }) {
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -59,7 +61,7 @@ export function ProjectCard({
       initial={reduce ? undefined : { opacity: 0, y: 28 }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: (index % 2) * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, delay: (index % columns) * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="spotlight group flex h-full flex-col border border-line bg-surface/40 p-6 transition-colors duration-300 hover:border-line-bright"
     >
       <div className="mb-4 flex items-start justify-between">

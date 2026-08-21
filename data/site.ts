@@ -35,7 +35,7 @@ export const site = {
   },
 
   stats: [
-    { value: 5, suffix: "", label: "Curated projects" },
+    { value: 7, suffix: "", label: "Curated projects" },
     { value: 2, suffix: "", label: "Freelance platforms" },
     { value: 100, suffix: "%", label: "Client-focused delivery" },
   ],
@@ -55,9 +55,9 @@ export const site = {
     },
     {
       index: "03",
-      title: "Document & AI-assisted tooling",
+      title: "AI-assisted tooling",
       description:
-        "Turning unstructured PDFs into something a support team can query in plain language, with sources attached to every answer.",
+        "RAG over a company's own documents with cited sources, and AI SaaS products — captions, resumes, subscriptions — built on Groq, Gemini and Stripe.",
     },
     {
       index: "04",
@@ -97,6 +97,38 @@ export const site = {
       status: "live",
     },
     {
+      id: "contentforge",
+      name: "ContentForge AI",
+      kind: "AI SaaS",
+      year: "2026",
+      summary:
+        "Describe a post, pick a platform and tone, get three ready-to-publish captions with hashtags.",
+      detail: [
+        "A complete SaaS shell built around a small AI feature: Supabase handles auth (email/password and Google OAuth) and Postgres storage, Stripe handles subscriptions, and Groq's hosted Llama 3.3 generates the captions themselves.",
+        "The free tier is usage-tracked server-side rather than trusted to the client, so upgrade prompts are backed by an actual count, and the pricing selector on the landing page is interactive rather than a static table.",
+      ],
+      stack: ["Next.js", "Supabase", "Postgres", "Stripe", "Groq", "Tailwind CSS"],
+      live: "https://contentforge-ai-eta.vercel.app/",
+      repo: "https://github.com/muhammadhassan-web/contentforge-ai",
+      status: "live",
+    },
+    {
+      id: "resumeforge",
+      name: "ResumeForge AI",
+      kind: "AI writing tool",
+      year: "2026",
+      summary:
+        "Paste a job description and your background, get a tailored resume or cover letter exported straight to PDF.",
+      detail: [
+        "Single-purpose by design: no accounts, no payments, no database. Paste or upload a background (old resume/cover letter via pdf-parse and mammoth), paste the job posting, generate, edit inline, export.",
+        "Groq's Llama 3.3 70B restructures the background into a complete tailored resume rather than just rewriting bullet points, and the PDF export runs through @react-pdf/renderer so formatting stays consistent regardless of what was pasted in.",
+      ],
+      stack: ["Next.js", "Groq", "Tailwind CSS", "Framer Motion", "react-pdf"],
+      live: "https://resumeforge-tailor.vercel.app/",
+      repo: "https://github.com/muhammadhassan-web/resumeforge-ai",
+      status: "live",
+    },
+    {
       id: "pharmacy",
       name: "Pharmacy Stock Management",
       kind: "Inventory · client work",
@@ -117,13 +149,14 @@ export const site = {
       kind: "AI knowledge assistant",
       year: "2026",
       summary:
-        "An internal knowledge assistant that answers HR and IT questions from a company's own documents.",
+        "A multi-tenant HR/IT knowledge assistant — every answer is retrieved and cited from a company's own documents, never guessed.",
       detail: [
-        "HR and IT teams upload policy documents, handbooks and technical guides as PDFs. New employees or staff then ask questions in plain language, over email or chat, instead of filing a ticket.",
-        "The system searches the uploaded documents and returns accurate, source-backed answers instantly, which cuts down the repetitive queries that would otherwise land on HR and IT support.",
+        "Each company gets a fully isolated workspace: admins upload policy PDFs, employees sign in with one shared, rotatable credential and ask questions in plain language. Retrieval-augmented generation over MongoDB Atlas Vector Search means only the relevant document chunks reach the model, and every citation is verified against what was actually retrieved before it's shown as grounded — an unverifiable answer is marked as such instead of presented as fact.",
+        "Tenant isolation is enforced at the query level and covered by integration tests, alongside account lockout, per-IP and per-org rate limiting, JWT session revocation on password change, and a hardened HTTP layer (Helmet, strict CSP, CORS allow-listing). Collision-proof company codes come from an atomic counter, so two organizations can never land the same access code.",
       ],
-      stack: ["Next.js", "Node.js", "MongoDB"],
+      stack: ["React", "Vite", "Express", "MongoDB Atlas", "Gemini", "Cloudinary", "JWT"],
       live: "https://docyra.vercel.app/",
+      repo: "https://github.com/muhammadhassan-web/Docyra-AI-Powered-PDF-Search-Platform",
       status: "live",
     },
     {
@@ -165,7 +198,7 @@ export const site = {
     },
     {
       label: "Also comfortable in",
-      items: ["Socket.IO", "Yjs", "Zod", "Stripe", "Docker", "Jest", "Supertest", "Oracle SQL"],
+      items: ["Socket.IO", "Yjs", "Zod", "Stripe", "Supabase", "Groq", "Gemini", "Docker", "Jest", "Supertest"],
     },
     {
       label: "From coursework",

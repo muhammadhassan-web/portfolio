@@ -18,9 +18,9 @@ export default function Home() {
       <Hero />
 
       <Section id="work" index="01" label="Selected work">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {site.projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+            <ProjectCard key={project.id} project={project} index={i} columns={3} />
           ))}
         </div>
       </Section>
@@ -65,7 +65,7 @@ export default function Home() {
       <footer className="border-t border-line py-10">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 font-mono text-[10px] uppercase tracking-[0.2em] text-dim sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} Muhammad Hassan</span>
-          <span>Built with Next.js · Islamabad</span>
+          <span>Islamabad, Pakistan</span>
         </div>
       </footer>
     </main>
