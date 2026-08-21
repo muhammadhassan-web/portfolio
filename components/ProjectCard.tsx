@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useMotionValue, useReducedMotion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { Label } from "./Label";
@@ -62,8 +63,26 @@ export function ProjectCard({
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: (index % columns) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="spotlight group flex h-full flex-col border border-line bg-surface/40 p-6 transition-colors duration-300 hover:border-line-bright"
+      className="spotlight group flex h-full flex-col overflow-hidden border border-line bg-surface/40 transition-colors duration-300 hover:border-line-bright"
     >
+      {project.image && (
+        <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-line bg-raised">
+          <div className="flex items-center gap-1.5 border-b border-line bg-raised/80 px-3 py-2">
+            <span className="h-2 w-2 rounded-full bg-line-bright" />
+            <span className="h-2 w-2 rounded-full bg-line-bright" />
+            <span className="h-2 w-2 rounded-full bg-line-bright" />
+          </div>
+          <Image
+            src={project.image}
+            alt={`${project.name} interface preview`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
+
+      <div className="flex flex-1 flex-col p-6">
       <div className="mb-4 flex items-start justify-between">
         <span className="font-mono text-xs text-dim">
           {String(index + 1).padStart(2, "0")}
@@ -170,6 +189,7 @@ export function ProjectCard({
         {!project.live && !project.repo && (
           <span className="text-dim">Private repository — happy to walk through it on a call</span>
         )}
+      </div>
       </div>
     </motion.article>
   );
