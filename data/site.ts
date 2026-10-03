@@ -36,7 +36,7 @@ export const site = {
   },
 
   stats: [
-    { value: 7, suffix: "", label: "Curated projects" },
+    { value: 8, suffix: "", label: "Curated projects" },
     { value: 2, suffix: "", label: "Freelance platforms" },
     { value: 100, suffix: "%", label: "Client-focused delivery" },
   ],
@@ -69,6 +69,22 @@ export const site = {
   ],
 
   projects: [
+    {
+      id: "invenzra",
+      name: "Invenzra",
+      kind: "Inventory SaaS · production",
+      year: "2026",
+      summary:
+        "Stock, orders and warehousing in one system — counts stay accurate across every warehouse, batch and sales channel.",
+      detail: [
+        "A live inventory management platform for teams that move real product. Items are tracked by batch, serial and bin location across multiple warehouses, with reorder points that raise alerts before stock runs out, and orders turn into pick lists, packing slips and invoices in one pass.",
+        "Built on Oracle APEX, where I work as a developer on the production application: interactive forms and reports for stock and inventory operations, and PL/SQL for the business logic, validation, data processing and scheduled routines underneath them.",
+      ],
+      stack: ["Oracle APEX", "PL/SQL", "Oracle SQL 19c", "Interactive Reports", "ORDS"],
+      live: "https://www.invenzra.com/",
+      image: "/projects/invenzra.webp",
+      status: "live",
+    },
     {
       id: "relay",
       name: "Relay",
