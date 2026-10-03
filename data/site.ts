@@ -14,18 +14,18 @@ export type Project = {
 
 export const site = {
   name: "Muhammad Hassan",
-  role: "Full-stack developer",
+  role: "Full-stack MERN developer",
   location: "Islamabad, Pakistan",
   timezone: "UTC+5",
   overlap: "09:00–15:00 CET",
-  available: "Available for remote contract work",
+  available: "Open to remote freelance projects",
 
   // The page's argument, in one sentence.
   thesis:
     "I build systems that stay correct while several things change them at once — concurrent edits, batch expiry, payment state, extracted records.",
 
   intro:
-    "Full-stack developer working in TypeScript, React and Node. Most of what I build has a correctness problem at the centre of it rather than a rendering problem, and that's the part I like. Currently studying computer science at Air University, Islamabad, and taking remote freelance work alongside it.",
+    "Full-stack MERN developer working in TypeScript, React, Next.js and Node. I ship AI-powered SaaS products end to end — auth, payments, LLM integration, deployment — and most of what I build has a correctness problem at the centre of it rather than a rendering problem. Currently an Oracle APEX developer at Invenzra, working on a live production inventory platform, while studying BS Computer Science at Iqra University and taking remote freelance work alongside it.",
 
   contact: {
     email: "muhammadhassan2326@gmail.com",
@@ -52,7 +52,7 @@ export const site = {
       index: "02",
       title: "Business & inventory systems",
       description:
-        "Schema design for stock, batching and expiry logic — the kind of domain rules that break if you model them as a single quantity field.",
+        "Stock and inventory platforms in production — Oracle APEX forms and interactive reports, PL/SQL workflow automation, and batch and expiry logic that breaks if you model it as a single quantity field.",
     },
     {
       index: "03",
@@ -204,7 +204,11 @@ export const site = {
     },
     {
       label: "Also comfortable in",
-      items: ["Socket.IO", "Yjs", "Zod", "Stripe", "Supabase", "Groq", "Gemini", "Docker", "Jest", "Supertest"],
+      items: ["NestJS", "PostgreSQL", "Supabase", "Stripe", "Socket.IO", "Yjs", "Zod", "Groq", "Gemini", "Docker", "Jest", "Flask"],
+    },
+    {
+      label: "Enterprise",
+      items: ["Oracle APEX", "PL/SQL", "Oracle SQL 19c", "Interactive reports", "Workflow automation"],
     },
     {
       label: "From coursework",
@@ -214,21 +218,35 @@ export const site = {
 
   timeline: [
     {
-      period: "2025 — now",
-      title: "Freelance full-stack developer",
-      place: "Upwork · Fiverr",
+      period: "Aug 2026 — now",
+      title: "Oracle APEX developer",
+      place: "Invenzra · Islamabad (on-site)",
       notes: [
-        "Business systems for small operators: stock control with batch and expiry tracking, booking platforms with Stripe payments, and document extraction pipelines.",
-        "Usually working alone from requirements to deployment, which means the schema decisions and the deploy pipeline are both mine to get right.",
+        "Developing Invenzra, a stock and inventory management platform on Oracle APEX running in live production.",
+        "Building interactive forms and reporting across stock and inventory operations, plus PL/SQL workflow automation, data processing, validation and scheduled business routines.",
       ],
     },
     {
-      period: "2024 — 2028",
+      period: "Jan 2025 — now",
+      title: "Freelance full-stack developer",
+      place: "Upwork · Fiverr · Remote",
+      notes: [
+        "Architecting and shipping custom web applications, SaaS MVPs and admin dashboards for international clients.",
+        "Delivering complete products independently — authentication, payment infrastructure, AI features, deployment and handover — so the schema decisions and the deploy pipeline are both mine to get right.",
+      ],
+    },
+    {
+      period: "2026 — now",
       title: "BS Computer Science",
+      place: "Iqra University, Islamabad",
+      notes: ["Currently in the fifth semester."],
+    },
+    {
+      period: "Completed",
+      title: "Associate Degree in Computer Science",
       place: "Air University, Islamabad",
       notes: [
         "Coursework projects: a transit management system in Blazor and .NET, a 2D game engine in C++ with SFML, and performance-tracking utilities written in x86 Assembly.",
-        "Currently in the fourth semester.",
       ],
     },
   ],

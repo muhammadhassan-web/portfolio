@@ -30,7 +30,7 @@ const plexMono = IBM_Plex_Mono({
 
 const url = "https://portfolio-muhammadhassan.vercel.app";
 const description =
-  "Full-stack developer in Islamabad building real-time and data-heavy systems with TypeScript, React, Node and MongoDB. Available for remote work.";
+  "Full-stack MERN developer in Islamabad shipping AI-powered SaaS products with TypeScript, React, Next.js, Node and MongoDB. Oracle APEX developer at Invenzra. Open to remote freelance work.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -46,6 +46,10 @@ export const metadata: Metadata = {
     "Node.js",
     "MongoDB",
     "TypeScript",
+    "MERN stack developer",
+    "Oracle APEX",
+    "PL/SQL",
+    "AI SaaS",
     "Islamabad",
     "remote developer",
   ],
