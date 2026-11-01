@@ -252,6 +252,23 @@ export const site = {
       ],
     },
     {
+      period: "Oct 2026",
+      title: "McKinsey.org Forward Program",
+      place: "McKinsey.org · Professional development",
+      notes: [
+        "Selected for and completed this professional development programme, covering structured problem solving, clear communication with non-technical audiences, and adaptability.",
+      ],
+    },
+    {
+      period: "Oct 2026",
+      title: "Islamabad Hack 2026",
+      place: "Certificate of Appreciation (Participant) · Rawalpindi",
+      notes: [
+        "Built VoiceBridge with a team in one day: an AI voice agent that helps people who cannot read use online services, completing tasks on real websites from spoken instructions, in 7 regional languages.",
+        "The agent asks permission before acting on any website, requires PIN-protected family approval before payments, and detects scam messages.",
+      ],
+    },
+    {
       period: "2026 — now",
       title: "BS Computer Science",
       place: "Iqra University, Islamabad",
